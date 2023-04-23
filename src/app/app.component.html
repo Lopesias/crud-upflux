@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-6">
+            <h2>Lista de Pacientes</h2>
+          </div>
+          <div class="col-6">
+            <button type="button" class="btn btn-success" (click)="openDialogCriar()">Adicionar Paciente</button>
+          </div>
+        </div>
+        <div class="row pt-3">
+          <div class="form-group">
+            <input type="search" class="form-control" (input)="filter($any($event.target).value)" placeholder="Digite para filtrar">
+          </div>
+        </div>
+      </div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of Pacientes">
+            <td>{{item.nome}}</td>
+            <td>{{item.sobrenome}}</td>
+            <td>{{item.email}}</td>
+            <td>
+              <button type="button" mat-fab (click)="openDialogEditar()">
+                <mat-icon>edit_note</mat-icon>
+              </button>
+              <button type="button" mat-fab (click)="openDialogDetalhes()">
+                <mat-icon>info</mat-icon>
+              </button>
+              <button type="button" mat-fab (click)="openDialogExluir()">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> 
