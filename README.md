@@ -11,7 +11,9 @@ Versão 9.19.2
 Versão 16.18.0
 
 ## Inicialização
-Ao baixar o projeto rode o comando para intalação do NPM versão 9+. Rode o comando para intalação do Angular CLI versão 12+ ou -14. Após executar o comando npm i para instalação dos pacotes. Pronto basta rodar o comando ng server ou npm start para acessar o servidor de desenvolvimento. Navegue até a Url padrão para acessar http://localhost:4200/
+Ao baixar o projeto rode o comando para intalação do NPM versão 9+. Rode o comando para intalação do Angular CLI versão 12+ ou -14. Após executar o comando npm i para instalação dos pacotes. Pronto basta rodar o comando ng server ou npm start para acessar o servidor de desenvolvimento. Navegue até a Url padrão para acessar http://localhost:4200/;
+
+Para execuar a api basta abrir um segundo terminal e rodar o comando 'npm run json-run'. Com este comando ele irá rodar um servidor de banco json para teste com apis apontando para 'http://localhost:3000/pacientes'
   
 ## Execute unit tests
 Execute `ng test` para executar os testes unitarios via [Karma](https://karma-runner.github.io).

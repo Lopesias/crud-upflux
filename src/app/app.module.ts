@@ -17,6 +17,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import {MatInputModule} from '@angular/material/input';
     MatFormFieldModule,
     MatCardModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

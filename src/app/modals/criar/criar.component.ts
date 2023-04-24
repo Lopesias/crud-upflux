@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Paciente } from 'src/app/models/paciente';
 import { PacienteService } from 'src/app/services/Api/paciente.service';
 
@@ -18,12 +18,24 @@ export class CriarComponent {
 
   constructor(
     public dialogRef: MatDialogRef<CriarComponent>,
-    private pacienteService: PacienteService
+    private pacienteService: PacienteService,
+    @Inject(MAT_DIALOG_DATA) public data: Paciente,
   ) { }
+
+  ngOnInit(): void {
+    if (this.data)
+      this.pacienteForm = this.data;
+  }
 
   create() {
     this.pacienteService.create(this.pacienteForm).subscribe(() => {
-      this.dialogRef.close();
+      this.dialogRef.close(true);
+    });
+  }
+
+  update() {
+    this.pacienteService.update(this.pacienteForm).subscribe(() => {
+      this.dialogRef.close(true);
     });
   }
 

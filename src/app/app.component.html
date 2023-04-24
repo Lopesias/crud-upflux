@@ -7,7 +7,7 @@
     <mat-form-field class="filtro">
       <mat-label>Filtro</mat-label>
       <input matInput (keyup)="filter($event)" #input>
-    </mat-form-field> 
+    </mat-form-field>
     <button mat-raised-button color="primary" class="add" (click)="openDialogCriar()">
       Adicionar Paciente
     </button>
@@ -31,18 +31,16 @@
 
     <ng-container matColumnDef="acoes">
       <th mat-header-cell *matHeaderCellDef>Ações</th>
-      <td mat-cell *matCellDef="let element"> 
-        <button mat-icon-button class="material-icons md-24" color="primary">
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button class="material-icons md-24" color="primary" (click)="openDialogExluir(element)">
           <mat-icon>delete</mat-icon>
-        </button>
- 
-        <button mat-icon-button color="accent">
+        </button> 
+        <button mat-icon-button color="accent" (click)="openDialogDetalhes(element.id)">
           <mat-icon>description</mat-icon>
-        </button>
-
-        <button mat-icon-button color="warn" class="material-icons md-24">
+        </button> 
+        <button mat-icon-button color="warn" class="material-icons md-24" (click)="openDialogEditar(element)">
           <mat-icon>edit</mat-icon>
-        </button>  
+        </button>
       </td>
     </ng-container>
 
