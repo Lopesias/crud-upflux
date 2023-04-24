@@ -1,9 +1,11 @@
 
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
 import { CriarComponent } from './modals/criar/criar.component';
 import { DetalhesComponent } from './modals/detalhes/detalhes.component';
 import { ExcluirComponent } from './modals/excluir/excluir.component';
+import { Paciente } from './models/paciente';
 import { PacienteService } from './services/Api/paciente.service';
 
 
@@ -14,7 +16,9 @@ import { PacienteService } from './services/Api/paciente.service';
 })
 export class AppComponent implements OnInit {
 
-  public Pacientes: any; 
+  Allpacientes: Paciente[] = [];
+  displayedColumns: string[] = ['id', 'nome', 'email', 'acoes'];
+  dataSource = new MatTableDataSource(this.Allpacientes); 
 
   constructor(
     public dialog: MatDialog,
@@ -25,17 +29,16 @@ export class AppComponent implements OnInit {
     this.getData();
   }
 
-  getData() {
-    this.pacienteService.getAll()
-      .subscribe((result) => {
-        this.Pacientes = result.Pacientes;
-      }, (error) => {
-        console.log(error);
-      });
+  getData(): void {
+    this.pacienteService.getAll().subscribe((data) => {
+      this.dataSource.data = data;
+    });
   }
+ 
 
-  filter(value: string) { 
-    return value ? this.Pacientes.filter((item: any) => item === value) : this.Pacientes;
+  filter(event: Event) { 
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   openDialogCriar() {

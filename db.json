@@ -1,0 +1,14 @@
+{
+  "pacientes": [
+    {
+      "id": 1,
+      "nome": "gabriel",
+      "email": "gabriel@email.com"
+    },
+    {
+      "id": 2,
+      "nome": "joao",
+      "email": "joao@email.com"
+    } 
+  ] 
+}

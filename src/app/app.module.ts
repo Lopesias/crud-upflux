@@ -11,6 +11,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { NgModule } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { CriarComponent } from './modals/criar/criar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatTableModule} from '@angular/material/table'; 
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -22,11 +26,15 @@ import { CriarComponent } from './modals/criar/criar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
+    MatToolbarModule,
     MatDialogModule,
     HttpClientModule,
+    MatTableModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

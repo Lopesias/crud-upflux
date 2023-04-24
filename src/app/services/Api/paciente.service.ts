@@ -1,8 +1,10 @@
-import { HttpClient } from '@angular/common/http'; 
+ 
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Paciente } from 'src/app/models/paciente';
 
-let baseUrl = "../../assets/db.json";
+let baseUrl = 'http://localhost:3000/pacientes';
 
 @Injectable({
   providedIn: 'root'
@@ -10,25 +12,25 @@ let baseUrl = "../../assets/db.json";
 export class PacienteService {
 
   constructor(private http: HttpClient) { }
+ 
+  create(data: Paciente): Observable<Paciente> {
+    return this.http.post<Paciente>(baseUrl, data);
+  }  
 
-  create(data: any): Observable<any> {
-    return this.http.post(baseUrl, data);
-  } 
-
-  update(id: any, data: any): Observable<any> {
-    return this.http.put(`${baseUrl}/${id}`, data);
+  update(id: any, data: any): Observable<Paciente> {
+    return this.http.put<Paciente>(`${baseUrl}/${id}`, data);
   }
 
-  delete(id: any): Observable<any> {
-    return this.http.delete(`${baseUrl}/${id}`);
+  delete(id: any): Observable<Paciente> {
+    return this.http.delete<Paciente>(`${baseUrl}/${id}`);
   }
 
-  get(id: any): Observable<any> {
-    return this.http.get(`${baseUrl}/${id}`);
+  get(id: any): Observable<Paciente> {
+    return this.http.get<Paciente>(`${baseUrl}/${id}`);
   }
 
-  getAll(): Observable<any> {
-    return this.http.get(`${baseUrl}`);
+  getAll(): Observable<Paciente[]> { 
+    return this.http.get<Paciente[]>(`${baseUrl}`);
   }  
 
 }
