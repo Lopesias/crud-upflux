@@ -14,6 +14,7 @@ export class PacienteService {
   constructor(private http: HttpClient) { }
  
   create(data: Paciente): Observable<Paciente> {
+    debugger
     return this.http.post<Paciente>(baseUrl, data);
   }  
 

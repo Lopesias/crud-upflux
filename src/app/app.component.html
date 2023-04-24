@@ -2,15 +2,16 @@
   <span>UpFlux</span>
 </mat-toolbar>
 
-<!-- <div>
-  <button mat-raised-button>
-    Add data
-  </button>
-</div> -->
-
-<div class="pacientes-container"> 
-  <mat-label>Filtro</mat-label>
-  <input matInput (keyup)="filter($event)" #input> 
+<div class="pacientes-container">
+  <ng-container>
+    <mat-form-field class="filtro">
+      <mat-label>Filtro</mat-label>
+      <input matInput (keyup)="filter($event)" #input>
+    </mat-form-field> 
+    <button mat-raised-button color="primary" class="add" (click)="openDialogCriar()">
+      Adicionar Paciente
+    </button>
+  </ng-container>
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="id">
@@ -30,10 +31,18 @@
 
     <ng-container matColumnDef="acoes">
       <th mat-header-cell *matHeaderCellDef>Ações</th>
-      <td mat-cell *matCellDef="let element">
-        <button>Detalhes</button>
-        <button>Editar</button>
-        <button>Deletar</button>
+      <td mat-cell *matCellDef="let element"> 
+        <button mat-icon-button class="material-icons md-24" color="primary">
+          <mat-icon>delete</mat-icon>
+        </button>
+ 
+        <button mat-icon-button color="accent">
+          <mat-icon>description</mat-icon>
+        </button>
+
+        <button mat-icon-button color="warn" class="material-icons md-24">
+          <mat-icon>edit</mat-icon>
+        </button>  
       </td>
     </ng-container>
 
